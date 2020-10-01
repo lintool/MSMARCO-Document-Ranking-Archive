@@ -5,8 +5,8 @@ name: CI
 # Controls when the action will run. Triggers the workflow on push or pull request
 # events but only for the main branch
 on:
-  push:
-    branches: [ main ]
+#  push:
+#    branches: [ main ]
   pull_request:
     branches: [ main ]
 
@@ -45,5 +45,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `${{ steps.step1.outputs.changelog }}`
+              body: `Output of eval script:<pre>${{ steps.step1.outputs.changelog }}</pre>`
             })
