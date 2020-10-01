@@ -28,14 +28,12 @@ jobs:
           architecture: x64
       # Runs a single command using the runners shell
       - name: Run eval script
-        run: python eval/run_eval.py --id 20200919-h2oloo > out.txt
-      - uses: actions/github-script@v3
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            github.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: '👋 Thanks for reporting!'
-            })
+        run: |
+          output=$(python eval/run_eval.py --id 20200919-h2oloo)
+          output="${output//'%'/'%25'}"
+          output="${output//$'\n'/'%0A'}"
+          output="${output//$'\r'/'%0D'}" 
+          echo "::set-output name=changelog::$output"
+        id: step1
+      - name: Print changelog
+        run: echo "${{ steps.step1.outputs.changelog }}"
