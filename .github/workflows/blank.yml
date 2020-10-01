@@ -28,4 +28,4 @@ jobs:
           architecture: x64
       # Runs a single command using the runners shell
       - name: Run eval script
-        run: python eval/run_eval.py --id 20200909-cmu
+        run: python eval/run_eval.py --id 20200919-h2oloo
