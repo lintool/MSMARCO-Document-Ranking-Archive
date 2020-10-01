@@ -28,4 +28,9 @@ jobs:
           architecture: x64
       # Runs a single command using the runners shell
       - name: Run eval script
-        run: python eval/run_eval.py --id 20200919-h2oloo
+        run: python eval/run_eval.py --id 20200919-h2oloo > out.txt
+      - uses: harupy/comment-on-pr@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          filename: out.txt
