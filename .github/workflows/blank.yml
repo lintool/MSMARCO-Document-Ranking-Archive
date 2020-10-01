@@ -36,4 +36,14 @@ jobs:
           echo "::set-output name=changelog::$output"
         id: step1
       - name: Print changelog
-        run: echo "${{ steps.step1.outputs.changelog }}"
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            echo "${{ steps.step1.outputs.changelog }}"
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Thanks for reporting!'
+            })
