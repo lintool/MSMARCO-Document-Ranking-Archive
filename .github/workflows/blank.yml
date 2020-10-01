@@ -29,8 +29,13 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run eval script
         run: python eval/run_eval.py --id 20200919-h2oloo > out.txt
-      - uses: harupy/comment-on-pr@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/github-script@v3
         with:
-          filename: out.txt
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '👋 Thanks for reporting!'
+            })
