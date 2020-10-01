@@ -8,6 +8,7 @@ Last Modified : 08/06/2020
 Authors : Daniel Campos <dacamp@microsoft.com>, Rutger van Haasteren <ruvanh@microsoft.com>
 """
 import sys
+import re
 import os
 import statistics
 
@@ -23,7 +24,7 @@ def load_reference_from_stream(f):
     qids_to_relevant_documentids = {}
     for l in f:
         try:
-            l = l.strip().split('\t')
+            l = re.split('[\t\s]', l.strip())
             qid = int(l[0])
             if qid in qids_to_relevant_documentids:
                 pass
@@ -198,9 +199,9 @@ def main():
             exclude_qids = set()
         elif len(sys.argv) == 1:
             exclude_qids = load_exclude(sys.argv[3]) #Public implementation
-        exclude_qids = load_exclude('exclude/')
+        #exclude_qids = load_exclude('exclude/')
         path_to_candidate = sys.argv[1]
-        path_to_reference = 'docleaderboard-qrels.tsv'
+        path_to_reference = sys.argv[2]
         metrics = compute_metrics_from_files(path_to_reference, path_to_candidate, exclude_qids)
         print('#####################')
         for metric in sorted(metrics):
