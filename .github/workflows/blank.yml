@@ -29,6 +29,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run eval script
         run: |
+          echo $PULL_REQUEST_TITLE
           output=$(python eval/run_eval.py --id 20200919-h2oloo)
           output="${output//'%'/'%25'}"
           output="${output//$'\n'/'%0A'}"
