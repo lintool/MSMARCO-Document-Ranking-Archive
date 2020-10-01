@@ -26,7 +26,8 @@ jobs:
         with:
           python-version: '3.6'
           architecture: x64
-      # Runs a single command using the runners shell
+      - name: Run eval script
+        run: echo $PULL_REQUEST_TITLE
       - name: Run eval script
         run: |
           output=$(python eval/run_eval.py --id 20200919-h2oloo)
