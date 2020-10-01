@@ -36,7 +36,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          echo ${{github.ref}}
+          echo ${{github.head_ref}}
 
       - name: Dump GitHub context
         env:
@@ -66,7 +66,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run eval script
         run: |
-          output=$(python eval/run_eval.py --id ${{github.headref}})
+          output=$(python eval/run_eval.py --id ${{github.head_ref}})
           output="${output//'%'/'%25'}"
           output="${output//$'\n'/'%0A'}"
           output="${output//$'\r'/'%0D'}" 
