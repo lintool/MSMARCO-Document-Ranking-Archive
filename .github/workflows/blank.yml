@@ -36,7 +36,7 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-          echo ${{ github.context.payload.pull_request.title }}
+          echo ${{github.ref}}
 
       # Runs a single command using the runners shell
       - name: Run eval script
