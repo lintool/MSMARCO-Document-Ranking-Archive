@@ -66,7 +66,7 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run eval script
         run: |
-          output=$(python eval/run_eval.py --id 20200919-h2oloo)
+          output=$(python eval/run_eval.py --id ${{github.headref}})
           output="${output//'%'/'%25'}"
           output="${output//$'\n'/'%0A'}"
           output="${output//$'\r'/'%0D'}" 
