@@ -3,5 +3,6 @@
   "model_description": "HDCT top100 + BERT-base FirstP (single)",
   "date": "2020/09/09",
   "paper": "",
-  "code": ""
+  "code": "",
+  "type": "full ranking"
 }

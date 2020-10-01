@@ -1,6 +1,6 @@
 id,date,,description,team,paper,code,types,MRR@100 (Dev),MRR@100 (Eval),tweetid
-20200909-cmu,2020/09/09,🏆,"HDCT top100 + BERT-base FirstP (single)","Luyu Gao and Zhuyun Dai - LTI, CMU",,,full ranking,,0.382,1303695596247752704
-20200907a,2020/09/07,🏆,"Expando-Mono-Duo-T5","Ronak Pradeep, Ruizhou Xu, Rodrigo Nogueira, and Jimmy Lin - University of Waterloo",,,full ranking,,0.370,1303331769358389249
+20200909-cmu,2020/09/09,🏆,"HDCT top100 + BERT-base FirstP (single)","Luyu Gao and Zhuyun Dai - LTI, CMU",,,full ranking,0.434,0.382,1303695596247752704
+20200907a,2020/09/07,🏆,"Expando-Mono-Duo-T5","Ronak Pradeep, Ruizhou Xu, Rodrigo Nogueira, and Jimmy Lin - University of Waterloo",,,full ranking,0.432,0.370,1303331769358389249
 20200827a,2020/08/27,🏆,"BERT based re-ranking on top of classic IR model","Leonid Boytsov - Bosch Center for AI",,,full ranking,,0.368,1299028581532798976
 20200907b,2020/09/07,,"Expando-Mono-T5","Ronak Pradeep, Ruizhou Xu, Rodrigo Nogueira, and Jimmy Lin - University of Waterloo",,,full ranking,,0.362,
 20200831a,2020/08/31,,"BERT-base Rerank Document First Passage","Luyu Gao and Zhuyun Dai - LTI, CMU",,,full ranking,,0.338,1300444068972036098
