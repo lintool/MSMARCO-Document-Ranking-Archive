@@ -63,7 +63,6 @@ jobs:
           MATRIX_CONTEXT: ${{ toJson(matrix) }}
         run: echo "$MATRIX_CONTEXT"
 
-      # Runs a single command using the runners shell
       - name: Run eval script
         run: |
           output=$(python eval/run_eval.py --id ${{github.head_ref}})
