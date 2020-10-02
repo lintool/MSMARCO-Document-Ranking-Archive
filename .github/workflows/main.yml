@@ -34,10 +34,11 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            console.log(`${{ steps.eval.outputs.log }}`)
+            # For debugging
+            # console.log(`${{ steps.eval.outputs.log }}`)
             github.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `Output of eval script:\n\`\`\`\n${{ steps.step1.outputs.changelog }}\n\`\`\`\n`
+              body: `Output of eval script:\n\`\`\`\n${{ steps.eval.outputs.log }}\n\`\`\`\n`
             })
