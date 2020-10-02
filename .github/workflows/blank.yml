@@ -29,7 +29,9 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run eval script
         run: |
-          output=$(python eval/run_eval.py --id ${{github.head_ref}})
+          set +e
+          python eval/run_eval.py --id ${{github.head_ref}} >& out.txt
+          output=$(cat out.txt)
           output="${output//'%'/'%25'}"
           output="${output//$'\n'/'%0A'}"
           output="${output//$'\r'/'%0D'}" 
